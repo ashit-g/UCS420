@@ -1,4 +1,4 @@
-# ucs420
+# UCS420
 
 A repository for the assignment submissions of the course UCS420 Cognitive Computing
 Student Name: Ashit Gupta
