@@ -1,0 +1,55 @@
+def scoring(query, df):
+
+    words = set(query.lower().split())
+
+    results = []
+
+    for index, row in df.iterrows():
+
+        keywords = set(row["keywords"].lower().split())
+
+        score = len(words.intersection(keywords))
+
+        if score > 0:
+            results.append({
+                "score": score,
+                "question": row["question"],
+                "answer": row["answer"]
+            })
+
+
+    if len(results) == 0:
+        print("No matching entries found.")
+        return
+
+
+    highest_score = max(result["score"] for result in results)
+
+
+    best_matches = [
+        result for result in results
+        if result["score"] == highest_score
+    ]
+
+    print("\nHighest Score:", highest_score)
+
+    if len(best_matches) > 1:
+        print("Tie found! Multiple entries have the highest score.")
+
+    else:
+        print("No tie. One entry has the highest score.")
+
+    print("\nMatching Entries:")
+
+    for result in best_matches:
+        print("Question:", result["question"])
+        print("Answer:", result["answer"])
+        print("Score:", result["score"])
+        print()
+
+
+print("----- TEST 1: TIE -----")
+scoring("fee", df)
+
+print("----- TEST 2: NO TIE -----")
+scoring("password", df)
