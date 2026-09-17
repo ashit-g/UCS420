@@ -1,0 +1,29 @@
+def scoring(query, df):
+    words = set(query.lower().split())
+
+    results = []
+
+    for index, row in df.iterrows():
+        keywords = set(row["keywords"].lower().split())
+
+        score = len(words.intersection(keywords))
+
+        if score > 0:
+            results.append((score, row["question"], row["answer"]))
+
+    results.sort(reverse=True)
+
+    return results
+
+
+query = input("Enter your query: ")
+
+results = scoring(query, df)
+
+print("\nMatching Entries:")
+
+for score, question, answer in results:
+    print("Score:", score)
+    print("Question:", question)
+    print("Answer:", answer)
+    print()
