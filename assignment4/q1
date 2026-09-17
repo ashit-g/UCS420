@@ -1,0 +1,60 @@
+import pandas as pd
+
+roll_no = "1024170203"
+
+fixed_entries = [
+    {
+        "question": "what is the annual fee",
+        "answer": "The annual fee is Rs 500.",
+        "keywords": "fee cost price charge",
+        "category": "billing"
+    },
+    {
+        "question": "how to reset password",
+        "answer": "Go to Settings > Reset Password.",
+        "keywords": "password reset login",
+        "category": "account"
+    },
+    {
+        "question": "what are your working hours",
+        "answer": "We are open 9 AM to 5 PM.",
+        "keywords": "hours timing open time",
+        "category": "general"
+    },
+    {
+        "question": "how can i pay the fee",
+        "answer": "You can pay via UPI, card, or net banking.",
+        "keywords": "pay payment upi fee",
+        "category": "billing"
+    }
+]
+
+
+last_digits = [int(roll_no[-2]), int(roll_no[-1])]
+
+categories = ["billing", "account", "general"]
+
+
+personalized_entries = [
+    {
+        "question": "how can i check my payment status",
+        "answer": "You can check your payment status from the Billing section.",
+        "keywords": "payment status billing transaction",
+        "category": categories[d % 3]
+    }
+    for d in last_digits[:1]
+]
+
+personalized_entries.append({
+    "question": "how can i get a payment receipt",
+    "answer": "You can download the payment receipt from the Billing section.",
+    "keywords": "receipt payment invoice billing",
+    "category": categories[last_digits[1] % 3]
+})
+
+
+all_entries = fixed_entries + personalized_entries
+
+df = pd.DataFrame(all_entries)
+
+print(df)
