@@ -1,4 +1,23 @@
 import numpy as np
-arr = np.array([1, 2, 3, 6, 4, 5])
-print("Original array:", arr)
-print("Reversed array:", arr[::-1])
+def a():
+  arr = np.array([1, 2, 3, 6, 4, 5])
+  print("Original array:", arr)
+  print("Reversed array:", arr[::-1])
+
+def b_i():
+  x = np.array([1, 2, 3, 4, 5, 1, 2, 1, 1, 1])
+  values, counts = np.unique(x, return_counts=True)
+  most_frequent = values[np.argmax(counts)]
+  print("Most frequent value:", most_frequent)
+  print("Indices:", np.where(x == most_frequent)[0])
+
+def b_ii():
+  y = np.array([1, 1, 1, 2, 3, 4, 2, 4, 3, 3])
+  values, counts = np.unique(y, return_counts=True)
+  most_frequent = values[np.argmax(counts)]
+  print("Most frequent value:", most_frequent)
+  print("Indices:", np.where(y == most_frequent)[0])
+
+a()
+b_i()
+b_ii()
