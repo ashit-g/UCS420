@@ -1,0 +1,16 @@
+import numpy as np
+
+ashit = np.linspace(10, 100, 25)
+
+print("Array:", ashit)
+print("Dimensions:", ashit.ndim)
+print("Shape:", ashit.shape)
+print("Total elements:", ashit.size)
+print("Data type:", ashit.dtype)
+print("Total bytes:", ashit.nbytes)
+
+transposed_ashit = ashit.reshape(1, 25).T
+print("\nTranspose using reshape:")
+print(transposed_ashit)
+print("\nUsing T attribute:")
+print(ashit.T)
