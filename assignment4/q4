@@ -1,0 +1,17 @@
+index = 0
+
+print("Selected question:")
+print(df.loc[index, "question"])
+
+new_keyword = input("Enter a new keyword: ")
+
+df.loc[index, "keywords"] = df.loc[index, "keywords"] + " " + new_keyword
+
+filename = roll_no + "_faq_data.csv"
+
+df.to_csv(filename, index=False)
+
+print("\nUpdated DataFrame:")
+print(df)
+
+print("\nFile saved as:", filename)
