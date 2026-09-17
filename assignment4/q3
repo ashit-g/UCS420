@@ -1,0 +1,10 @@
+def same_category(category_name, df):
+    return df[df["category"] == category_name]["question"]
+
+
+category_name = df.iloc[4]["category"]
+
+print("Category:", category_name)
+print("\nQuestions belonging to this category:")
+
+print(same_category(category_name, df))
