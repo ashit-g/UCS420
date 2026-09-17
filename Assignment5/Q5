@@ -1,0 +1,22 @@
+import numpy as np
+
+ucs420_ashit = np.array([
+    [10, 20, 30, 40],
+    [50, 60, 70, 80],
+    [90, 15, 20, 35]
+])
+
+print("Original array:")
+print(ucs420_ashit)
+
+print("\nMean:", np.mean(ucs420_ashit))
+print("Median:", np.median(ucs420_ashit))
+print("Maximum:", np.max(ucs420_ashit))
+print("Minimum:", np.min(ucs420_ashit))
+print("Unique elements:", np.unique(ucs420_ashit))
+reshaped_ucs420_ashit = ucs420_ashit.reshape(4, 3)
+print("\nReshaped array:")
+print(reshaped_ucs420_ashit)
+resized_ucs420_ashit = np.resize(ucs420_ashit, (2, 3))
+print("\nResized array:")
+print(resized_ucs420_ashit)
