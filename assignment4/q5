@@ -1,0 +1,4 @@
+category_count = df.groupby("category").size()
+
+print("FAQ entries per category:")
+print(category_count)
